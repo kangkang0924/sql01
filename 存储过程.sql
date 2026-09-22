@@ -256,3 +256,17 @@ begin
     close u_cursor;
 end;
 call p12(30);
+
+
+
+create function fun1(n int)
+    returns int deterministic
+begin
+    declare total int default 0;
+    while n>0 do
+            set total := total + n;
+            set n := n - 1;
+        end while;
+    return total;
+end;
+select fun1(50);
